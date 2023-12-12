@@ -14,10 +14,18 @@ import gym
 env = gym.make("LunarLander-v2")
 env.reset()
 
-done = False
-while not done:
-    action = env.action_space.sample()
-    observation, reward, done, _ = env.step(action)
+while True:
     env.render()
+    # This will just create a sample action in any environment.
+    # In this environment, the action can be any of one how in list on 4, for example [0 1 0 0]
+    action = env.action_space.sample()
+
+    # this executes the environment with an action,
+    # and returns the observation of the environment,
+    # the reward, if the env is over, and other info.
+    observation, reward, done, info = env.step(action)
+    print(observation, reward, done, info, action)
+    if done:
+        break
 
 env.close()
