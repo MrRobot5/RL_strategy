@@ -3,7 +3,7 @@
 利用 stable_baselines 训练 LunarLander
 
 训练效果查看：
-    1. tensorboard.exe --logdir /export/LunarLander-v2/
+    1. tensorboard.exe --logdir /d/export/LunarLander-v2/
     2. TensorBoard 1.15.0 at http://localhost:6006/
 
 ref: https://zhuanlan.zhihu.com/p/406517851
@@ -29,7 +29,7 @@ model = PPO2(MlpPolicy, env, gamma=0.999, n_steps=1024, ent_coef=0.01, lam=0.98,
 model.learn(total_timesteps=1500000)
 # model = PPO2.load("./LunarLander.pkl")
 # Save the current parameters to file
-model.save("./LunarLander.pkl")
+model.save("LunarLander_150K")
 
 obs = env.reset()
 done = False
